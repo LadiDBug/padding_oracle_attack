@@ -46,3 +46,4 @@ if __name__ == "__main__":
     plaintext = "Questa è una stringa segreta"
     ciphertext = cipher.encrypt(plaintext)
     print("Stringa cifrata: ", ciphertext)
+    
