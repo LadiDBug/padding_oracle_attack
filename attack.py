@@ -44,7 +44,7 @@ def attack(ciphertext):
 
         #metto il blocco decifrato nel plaintext
         plaintext += blocco_decifrato
-
+        #print(plaintext)
         #aggiorno iv
         iv = blocks[i]  
 
@@ -80,10 +80,10 @@ def decifra_blocco(block):
         else:
             #se non si riesce a trovare un padding valido, c'è eccezzione
             raise Exception("Nessun padding valido trovato")
-
+        #print(candidate)
         #memorizzo il valore che sono riuscita a decifrare nell'IV di prova 
         iv_prova[-pad_val] = candidate ^ pad_val    
-
+        #print(bytes(iv_prova))
     # alla fine ritorno il blocco decifrato
     return bytes(iv_prova)
 
@@ -115,4 +115,4 @@ if __name__ == "__main__":
 
     msg = attack(ciphertext)
     
-    print("Msg segreto:", msg.decode('utf-8'))
+    print("Messaggio segreto:", msg.decode('utf-8'))
